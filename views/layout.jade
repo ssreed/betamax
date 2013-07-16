@@ -1,0 +1,15 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+    script(src="/socket.io/socket.io.js")
+    script.
+        var server = io.connect('http://localhost');
+        $('#search_form').submit(function(e){
+            var message = $('input#searchbox').val();
+            socket.emit('messages', messsage);
+        });
+  body
+    block content

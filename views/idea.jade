@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    .main-container
+        h1 add an idea
+        form(action="/save", method="post",id="search_form")
+            input(type="text",id="searchbox",placeholder="Add idea", name="search", autofocus)
+        #results
+            ul
+              each idea in ideas
+                li #{idea.text}
+    script(src="/javascripts/seeds.js")
