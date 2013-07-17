@@ -40,12 +40,23 @@ var server = http.createServer(app).listen(app.get('port'), function(){
 });
 
 var io  = socket.listen(server);
+var clients = [];  
+// this is a storage area for active clients, 
+// on connection clients are pushed here 
+// and on disconect they should be removed. (I didn't do this part)
 
 io.sockets.on('connection', function(client){
+    //pushing clinet to our clients[]
+    clients.push(client);
     console.log('Client connected...');
-    //client.emit('messages', {hello: 'world'});
     client.on('messages', function(data) {
         console.log('...incoming...');
         console.log("msg received " + data);
+
+        //This is the reason for storing clietns, so we can emit to all active rather than the only one.
+        for (var i = clients.length - 1; i >= 0; i--) {
+          clients[i].emit('messages', data)
+        };
+        // Save to redis here
     });
 });

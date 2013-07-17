@@ -1,5 +1,5 @@
-var redis = require('redis'),
-    client = redis.createClient();
+// var redis = require('redis'),
+//     client = redis.createClient();
 /*
  * GET home page.
  */
@@ -18,19 +18,20 @@ exports.about = function(req, res) {
  * GET idea list page.
  */
 exports.idea = function(req, res) {
-    var ideas = [];
-    client.hgetall("Idea", function(err, arr){
-        for(var i in arr) {
-            var newIdea = {
-                text: arr[i]
-            };
-            ideas.push(newIdea);
+    var ideas = ["stuff", "more stuff ", "final stuff"];
+    res.render('idea', {title: 'New ideas list', ideas: ideas });
+    // client.hgetall("Idea", function(err, arr){
+    //     for(var i in arr) {
+    //         var newIdea = {
+    //             text: arr[i]
+    //         };
+    //         ideas.push(newIdea);
 
-        }
-        //console.log(arr);
-        //console.log(ideas);
-        res.render('idea', {title: 'New ideas list', ideas: ideas });
-    });
+    //     }
+    //     //console.log(arr);
+    //     //console.log(ideas);
+    //     res.render('idea', {title: 'New ideas list', ideas: ideas });
+    // });
 };
 
 /*
