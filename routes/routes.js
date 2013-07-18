@@ -18,7 +18,8 @@ exports.about = function(req, res) {
  * GET idea list page.
  */
 exports.idea = function(req, res) {
-    var ideas = ["stuff", "more stuff ", "final stuff"];
+    //var ideas = ["stuff", "more stuff ", "final stuff"];
+    var ideas = [];
     res.render('idea', {title: 'New ideas list', ideas: ideas });
     // client.hgetall("Idea", function(err, arr){
     //     for(var i in arr) {

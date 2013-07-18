@@ -12,8 +12,7 @@ $(function(){
 
 
     Client.prototype.init = function() {
-        console.log('App initialized' + app);
-        
+        console.log('App initialized' + app);      
         var server = io.connect('http://localhost:3000');
         server.on('messages', function(data){
             app.result.append('<li> ' + data + '</li>');
