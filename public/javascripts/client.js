@@ -16,11 +16,12 @@ $(function(){
         
         var server = io.connect('http://localhost:3000');
         server.on('messages', function(data){
-            $('#results').append('<li> ' + data + '</li>');
+            app.result.append('<li> ' + data + '</li>');
             // when using a data base, you may consider pulling from the data base rather than just loading it.
             // Or just load it, since it will be up to date when you get the message, 
             // and then you will load from the data base when the page refreshes
-        })        
+        });
+
         app.searchBox.on('keypress', function(e) {
             if(e.which === 13) {
                 e.preventDefault();

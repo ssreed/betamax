@@ -26,8 +26,7 @@ body {
     padding: 5%;
 }
 
-input#searchbox,
-input[type=submit] {
+input#searchbox {
     width: 30%;
     height: 40px;
     margin: 0 auto;
@@ -35,16 +34,28 @@ input[type=submit] {
     font-size: 1.75em;
 }
 
-input[type=submit] {
-    vertical-align: bottom;
-}
-
 #results {
     width: 55%;
     margin: 2% auto;
 }
-
-li {
-    list-style: none;
-    border: 1px solid blue;
+ 
+#results ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ 
+#results li {
+  font: 200 15px/1.5 Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid #ccc;
+  list-style: none;
+}
+ 
+#results li:last-child {
+  border: none;
+}
+ 
+#results li:hover {
+  font-size: 20px;
+  background: #f6f6f6;
 }
